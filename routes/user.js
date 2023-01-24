@@ -63,3 +63,13 @@ router.post('/updateuser', (req, res) => {
         }
     })
 })
+
+router.post('/deleteauser', (req, res) => {
+    userModel.findOneAndDelete({userId:req.body.userId}, (err) => { 
+        if(!err){
+            res.send('User deleted successfuly')
+        }else{
+            res.send(err)
+        }
+    })
+})
